@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Libery_Frontend.Views.LoginPage"
+             NavigationPage.HasBackButton="False">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="ResourcePage.xaml"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <RelativeLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="0,0,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="600"/>
+                            <RowDefinition Height="100"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="250"/>
+                            <ColumnDefinition Width="500"/>
+                            <ColumnDefinition Width="120"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Padding="10" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Grid.Column="1" Grid.Row="1">
+                            <AbsoluteLayout >
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1"/>
+                                        <RowDefinition Height="250"/>
+                                        <RowDefinition Height="180"/>
+
+
+
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1"/>
+                                        <ColumnDefinition Width="700"/>
+                                        <ColumnDefinition Width="300"/>
+
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <BoxView CornerRadius="10" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="3" >
+                                        <BoxView.Background>
+                                            <LinearGradientBrush >
+
+                                                <GradientStop Color="LightCoral" Offset=".68" />
+                                                <GradientStop  Offset=".2" Color="SeaGreen" />
+
+                                            </LinearGradientBrush>
+                                        </BoxView.Background>
+                                    </BoxView>
+                                    <Image Source="loginlogo.png" Scale=".67" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"/>
+
+                                    <RelativeLayout Grid.Row="2" Grid.Column="2" HorizontalOptions="Fill" Margin="30,0,0,0">
+                                        <StackLayout Scale=".9" HorizontalOptions="CenterAndExpand" >
+                                            <StackLayout Orientation="Horizontal" >
+                                                <Image Source="Icons/user.png" Scale="1" HorizontalOptions="Start" />
+                                                <Entry x:Name="UsernameEntry" Placeholder="Användarnamn" HorizontalOptions="CenterAndExpand" FontFamily="DINpro" TextColor="Black" WidthRequest="170"/>
+                                            </StackLayout>
+
+                                            <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                                                <Image Source="Icons/password.png" Scale="1" HorizontalOptions="Start" />
+                                                <Entry x:Name="PasswordEntry"  HorizontalOptions="StartAndExpand" IsPassword="True" FontFamily="DINpro" Placeholder="Lösenord"  TextColor="black" WidthRequest="170"/>
+                                            </StackLayout>
+
+                                            <Button x:Name="LoginButton" HorizontalOptions="Center" Margin="30,20,0,0" TextColor="White" Text="Logga in"  CornerRadius="10" Clicked="LoginButton_Clicked" BackgroundColor="#104D56" FontFamily="DINpro" FontAttributes="Bold"/>
+
+                                            <Label Text="Registrera dig" TextDecorations="Underline" TextColor="Black" Margin="30,0,0,0" HorizontalOptions="Center" >
+                                                <Label.GestureRecognizers>
+
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                        </StackLayout>
+                                    </RelativeLayout>
+                                </Grid>
+                            </AbsoluteLayout>
+
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+            </RelativeLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

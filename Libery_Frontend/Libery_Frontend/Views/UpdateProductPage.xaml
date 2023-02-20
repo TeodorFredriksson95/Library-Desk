@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Libery_Frontend.Views.UpdateProductPage"
+             xmlns:local="clr-namespace:Libery_Frontend.SecondModels">
+    
+    <ContentPage.Resources>
+        <local:BoolConverter x:Key="boolConverter"></local:BoolConverter>
+        <ResourceDictionary Source="ResourcePage.xaml"/>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Frame Grid.Column="0" WidthRequest="200" Margin="5">
+                <StackLayout x:Name="ButtonMenu" IsVisible="true">
+                </StackLayout>
+            </Frame>
+            <StackLayout>
+            <Frame  Grid.Column="1">
+                <StackLayout x:Name="ActionFrame" IsVisible="true">
+                    <Label x:Name="DefaultFrameText" Text="Uppdatera produkt"
+                           FontAttributes="Bold"
+                           FontSize="Medium"/>
+
+                    <StackLayout x:Name="AllProdsFrame" IsVisible="true">
+                        <ActivityIndicator x:Name="ActivityIndicator" IsVisible="false"/>
+                        <ListView x:Name="ProductListView" BackgroundColor="Transparent"  HasUnevenRows="True" ItemSelected="ProductListView_ItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                            <Grid Padding="5">
+                                                <Frame CornerRadius="10" HasShadow="True" BackgroundColor="AntiqueWhite">
+                                                    <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="10,10,5,15" Margin="0,5,5,0">
+                                                        <StackLayout HorizontalOptions="Start" Orientation="Vertical">
+                                                            <Image Source="{Binding Image}" HorizontalOptions="Start" WidthRequest="90" Margin="10" />
+                                                        </StackLayout>
+                                                        <StackLayout HorizontalOptions="Start" BackgroundColor="Transparent">
+                                                            <Label VerticalOptions="Center" Text="{Binding Name}" FontSize="Large" FontAttributes="Bold"/>
+                                                            <Label VerticalOptions="Center" Text="{Binding Info}" FontSize="18" WidthRequest="800"/>
+                                                            <Label VerticalOptions="Center" Text="{Binding Type}" FontSize="18" WidthRequest="800"/>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </Grid>
+                                        </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+
+                        <StackLayout x:Name="SingleProdFrame" IsVisible="false">
+                            <StackLayout x:Name="SecondProdFrame">
+                            <ListView x:Name="SecondProductListView" BackgroundColor="Transparent"  HasUnevenRows="True">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                            <ViewCell>
+                                                <Grid Padding="5">
+                                                    <Frame CornerRadius="10" HasShadow="True" BackgroundColor="AntiqueWhite">
+                                                        <StackLayout  HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="10,10,5,15">
+                                                            <StackLayout HorizontalOptions="Start" Orientation="Vertical">
+                                                                <Image Source="{Binding Image}" HorizontalOptions="Start" WidthRequest="90" Margin="10" />
+                                                            </StackLayout>
+                                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Start" BackgroundColor="Transparent">
+                                                                <Label VerticalOptions="Center" Text="{Binding Name, StringFormat='Titel: {0}'}" FontSize="Large" FontAttributes="Bold"/>
+                                                                <Label VerticalOptions="Center" Text="{Binding Info, StringFormat='Beskrivning: {0}'}" FontSize="18" WidthRequest="800"/>
+                                                                <Label VerticalOptions="Center" Text="{Binding Type, StringFormat='Produkttyp: {0}'}" FontSize="18" WidthRequest="800"/>
+                                                                <!--<Label VerticalOptions="Center" Text="{Binding UnitPrice, StringFormat='Pris: {0}'}" FontSize="18" WidthRequest="800"/>-->
+                                                                <Label VerticalOptions="Center" Text="{Binding AuthorID, StringFormat='FörfattarID: {0}'}" FontSize="18" WidthRequest="800"/>
+                                                                <Label VerticalOptions="Center" Text="{Binding DirectorID, StringFormat='RegissörID: {0}'}" FontSize="18" WidthRequest="800"/>
+                                                                <Label VerticalOptions="Center" Text="{Binding ReleaseDate, StringFormat='Utgiven: {0:dd/M-yyyy}'}" FontSize="18" WidthRequest="800"/>
+                                                                <Label VerticalOptions="Center" Text="{Binding IsBookable,Converter={StaticResource boolConverter}, StringFormat='Går att boka: {0}'}" FontSize="18" WidthRequest="800"/>
+                                                                <Label VerticalOptions="Center" Text="{Binding Category, StringFormat='Kategori: {0}'}" FontSize="18" WidthRequest="800"/>
+                                                                <Label VerticalOptions="Center" Text="{Binding ISBN, StringFormat='ISBN: {0}'}" FontSize="18" WidthRequest="800"/>
+                                                                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                                                    <Button Text="Redigera" x:Name="EditButton" Clicked="EditButton_Clicked"/>
+                                                                    <Button Text="Tillbaka till lista" x:Name="BackToListButton" Clicked="BackToListButton_Clicked"/>
+                                                                </StackLayout>
+                                                            </StackLayout>
+                                                        </StackLayout>
+                                                    </Frame>
+                                                </Grid>
+                                            </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </StackLayout>
+
+                </StackLayout>
+            </Frame>
+            </StackLayout>
+
+            <StackLayout x:Name="EntryView" IsVisible="false" Grid.Column="1">
+
+                <StackLayout>
+                    <Label x:Name="PriceLab" Text="Pris" FontAttributes="Bold"/>
+                    <Entry x:Name="PriceEntry" Placeholder="Pris.." PlaceholderColor="Red" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label x:Name="ISBNLab" Text="ISBN" FontAttributes="Bold"/>
+                    <Entry x:Name="ISBNEntry" Placeholder="ISBN.." PlaceholderColor="Red" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label x:Name="AmountOfPagesLab" Text="Antal sidor" FontAttributes="Bold"/>
+                    <Entry x:Name="AmountOfPagesEntry" Placeholder="Antal sidor.." PlaceholderColor="Red" FontAttributes="Italic"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label x:Name="ImageURLLab" Text="Bild-URL" FontAttributes="Bold" />
+                    <Entry x:Name="ImageURLEntry" Placeholder="URL-länk.." PlaceholderColor="Red" />
+                </StackLayout>
+
+                <StackLayout x:Name="AuthorSL" Orientation="Horizontal" >
+                    <Grid HorizontalOptions="FillAndExpand">
+                        <StackLayout HorizontalOptions="StartAndExpand" Grid.Column="0">
+                            <Label Text="Författare" x:Name="AuthorLab" FontAttributes="Bold"/>
+                            <Picker x:Name="AuthorIDPicker" >
+                            </Picker>
+                        </StackLayout>
+
+                        <StackLayout HorizontalOptions="FillAndExpand" Grid.Column="1">
+
+                            <Label Text="Kategori" FontAttributes="Bold" />
+                            <Picker x:Name="CategoryIDPicker" >
+                            </Picker>
+                        </StackLayout>
+
+                        <StackLayout HorizontalOptions="Center" Grid.Column="2" >
+                            <Label Text="Produktttyp" FontAttributes="Bold" />
+                            <Picker x:Name="ProductTypePicker" SelectedIndexChanged="ProductTypePicker_SelectedIndexChanged" >
+
+                            </Picker>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout  HeightRequest="50" ></StackLayout>
+
+                <StackLayout Orientation="Horizontal" >
+                    <Grid HorizontalOptions="FillAndExpand">
+                        <StackLayout Orientation="Vertical" Grid.Column="0" >
+                            <Label Text="Utgivningsdatum" FontAttributes="Bold"/>
+                            <DatePicker x:Name="RealeseDatePicker" Margin="0,0,0,0">
+                            </DatePicker>
+                        </StackLayout>
+
+                        <StackLayout HorizontalOptions="Start" Grid.Column="1" Margin="40,0,0,0" >
+                            <Label Text="Går att boka?" FontAttributes="Bold" Margin="-20,0,0,0" />
+                            <CheckBox x:Name="BookableCBX"/>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+
+                
+                        <Label x:Name="DescriptionLab" Text="Beskrivning" />
+                <Editor  x:Name="DescriptionEntry" Placeholder="Bokens beskrivning här.." PlaceholderColor="Red" FontAttributes="Italic" HeightRequest="150" BackgroundColor="Wheat" Focused="DescriptionEntry_Focused" Unfocused="DescriptionEntry_Unfocused"/>
+                <Button x:Name="UpdateButton" Text="Uppdatera" Clicked="UpdateButton_Clicked"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

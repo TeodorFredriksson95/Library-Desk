@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:Views="clr-namespace:Libery_Frontend.Views"
+            x:Class="Libery_Frontend.Views.MainPage"
+            NavigationPage.HasBackButton="False"
+            IconImageSource="Icons\useronline.png"
+            
+            >
+
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem x:Name="LogoutButton" IconImageSource="Icons/logout.png" Text="Logga Ut" Order="Primary" Clicked="ToolbarItem_Clicked" />
+    </TabbedPage.ToolbarItems>
+
+
+    <TabbedPage.Children>
+        <Views:AboutPage  Title="Hem" IconImageSource="Icons/home.png"></Views:AboutPage>
+        <Views:SearchPage IconImageSource="Icons/search.png" Title="Sök"/>
+        <Views:Books IconImageSource="Icons/book.png"  Title="Böcker &amp; Filmer"></Views:Books>
+        <Views:E_Media IconImageSource="Icons/e-tablet.png"  Title ="E-medier"></Views:E_Media>
+        <Views:LoginPage IconImageSource="Icons/login.png"  Title="Logga in"/>
+        <Views:RegisterPage/>
+    </TabbedPage.Children>
+
+</TabbedPage>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Libery_Frontend.Views.UserAccountProductsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Padding="36" CornerRadius="0" HorizontalOptions="FillAndExpand" >
+                <Label Text="Alla produkter" HorizontalTextAlignment="Start" TextColor="Black" FontSize="36"/>
+            </Frame>
+            <ActivityIndicator x:Name="ActivityIndicator" IsVisible="false"></ActivityIndicator>
+            <StackLayout x:Name="AddProdFrame" IsVisible="true">
+                <ListView x:Name="ProductListView" BackgroundColor="Transparent"  HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="5">
+                                    <Frame CornerRadius="10" HasShadow="True" BackgroundColor="Bisque">
+                                        <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="10,10,5,15">
+                                            <StackLayout HorizontalOptions="Start" Orientation="Vertical">
+                                                <Image Source="{Binding Image}" HorizontalOptions="Start" WidthRequest="90" />
+                                            </StackLayout>
+                                            <StackLayout HorizontalOptions="Start" BackgroundColor="Transparent">
+                                                <Label VerticalOptions="Center" Text="{Binding Name}" FontSize="Large" FontAttributes="Bold"   />
+                                                <Label VerticalOptions="Center" Text="{Binding Info}" FontSize="18" WidthRequest="800"/>
+                                                <Label VerticalOptions="Center" Text="{Binding Type}" FontSize="18" />
+                                            </StackLayout>
+                                            <StackLayout HorizontalOptions="End" VerticalOptions="Center" Orientation="Vertical" Padding="100,0,0,0" x:Name="stackBookButton">
+                                                <Button x:Name="BookProductButton" Text="Låna" FontSize="Medium" FontAttributes="Bold" IsVisible="true" Clicked="BookProductButton_Clicked"/>
+
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

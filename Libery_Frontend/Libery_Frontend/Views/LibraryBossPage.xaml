@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Libery_Frontend.Views.LibraryBossPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="ResourcePage.xaml"/>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content >
+
+        <StackLayout BackgroundColor="Transparent">
+            <ActivityIndicator x:Name="ActivityIndicator" IsVisible="false"/>
+            
+            <Grid>
+                <Grid.RowDefinitions>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout  Grid.Column="0" x:Name="UserGroupUserLVSL">
+                    <Label Text="Användare" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large"/>
+                    <Frame >
+                        <ListView x:Name="UserGroupUserLV" BackgroundColor="Transparent"  HasUnevenRows="True" ItemSelected="UserGroupUserLV_ItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid Padding="5">
+                                            <Frame CornerRadius="10" HasShadow="True" BackgroundColor="AntiqueWhite">
+                                                <StackLayout BackgroundColor="Transparent">
+                                                    <Label VerticalOptions="Center" Text="{Binding Username, StringFormat='Användarnamn: {0}'}" FontSize="Large" FontAttributes="Bold"   />
+                                                    <Label VerticalOptions="Center" Text="{Binding Firstname, StringFormat='Förnamn: {0}'}" FontSize="18" />
+                                                    <Label VerticalOptions="Center" Text="{Binding Lastname, StringFormat='Efternamn: {0}'}" FontSize="18" />
+                                                    <Label VerticalOptions="Center" Text="{Binding UserGroup, StringFormat='Behörighet: {0}'}" FontSize="18" />
+
+                                                </StackLayout>
+                                            </Frame>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout  Grid.Column="1" x:Name="UserGroupAdminLVSL">
+
+                    <Label Text="Bibliotekarie" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large"/>
+                    <Frame >
+                        <ListView x:Name="UserGroupLibrarianListview" BackgroundColor="Transparent"  HasUnevenRows="True" ItemSelected="UserGroupLibrarianListview_ItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid Padding="5">
+                                            <Frame CornerRadius="10" HasShadow="True" BackgroundColor="AntiqueWhite">
+                                                <StackLayout BackgroundColor="Transparent">
+                                                    <Label VerticalOptions="Center" Text="{Binding Username, StringFormat='Användarnamn: {0}'}" FontSize="Large" FontAttributes="Bold"   />
+                                                    <Label VerticalOptions="Center" Text="{Binding Firstname, StringFormat='Förnamn: {0}'}" FontSize="18" />
+                                                    <Label VerticalOptions="Center" Text="{Binding Lastname, StringFormat='Efternamn: {0}'}" FontSize="18" />
+                                                    <Label VerticalOptions="Center" Text="{Binding UserGroup, StringFormat='Behörighet: {0}'}" FontSize="18" />
+
+                                                </StackLayout>
+                                            </Frame>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout  Grid.Column="2" x:Name="UserGroupBossLVSL">
+
+                    <Label Text="Chef" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large"/>
+                    <Frame >
+                        <ListView x:Name="UserGroupBossLV" BackgroundColor="Transparent"  HasUnevenRows="True" ItemSelected="UserGroupBossLV_ItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid Padding="5">
+                                            <Frame CornerRadius="10" HasShadow="True" BackgroundColor="AntiqueWhite">
+                                                <StackLayout BackgroundColor="Transparent">
+                                                    <Label VerticalOptions="Center" Text="{Binding Username, StringFormat='Användarnamn: {0}'}" FontSize="Large" FontAttributes="Bold"   />
+                                                    <Label VerticalOptions="Center" Text="{Binding Firstname, StringFormat='Förnamn: {0}'}" FontSize="18" />
+                                                    <Label VerticalOptions="Center" Text="{Binding Lastname, StringFormat='Efternamn: {0}'}" FontSize="18" />
+                                                    <Label VerticalOptions="Center" Text="{Binding UserGroup, StringFormat='Behörighet: {0}'}" FontSize="18" />
+
+                                                </StackLayout>
+                                            </Frame>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Frame>
+                </StackLayout>
+
+
+                <StackLayout x:Name="SingleUserGroup" IsVisible="false" Grid.Column="0" Margin="0,20,0,0">
+                    <ListView x:Name="SingleUserGroupLV" BackgroundColor="Transparent"  HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid Padding="5">
+                                        <Frame CornerRadius="10" HasShadow="True" BackgroundColor="AntiqueWhite">
+                                            <StackLayout BackgroundColor="Transparent">
+                                                <Label VerticalOptions="Center" Text="{Binding UserGroup, StringFormat='Behörighet: {0}'}" FontSize="Large" FontAttributes="Bold" />
+                                                <Label VerticalOptions="Center" Text="{Binding Username, StringFormat='Användarnamn: {0}'}" FontSize="18"   />
+                                                <Label VerticalOptions="Center" Text="{Binding Firstname, StringFormat='Förnamn: {0}'}" FontSize="18" />
+                                                <Label VerticalOptions="Center" Text="{Binding Lastname, StringFormat='Efternamn: {0}'}" FontSize="18" />
+                                                <Label VerticalOptions="Center" Text="{Binding Address, StringFormat='Adress: {0}'}" FontSize="18" />
+                                                <Label VerticalOptions="Center" Text="{Binding PostalCode, StringFormat='Postkod: {0}'}" FontSize="18" />
+                                                <Label VerticalOptions="Center" Text="{Binding City, StringFormat='Stad: {0}'}" FontSize="18" />
+                                                <Label VerticalOptions="Center" Text="{Binding Email, StringFormat='Email: {0}'}" FontSize="18" />
+                                                <Label VerticalOptions="Center" Text="{Binding PhoneNumber, StringFormat='Telefonnummer: {0}'}" FontSize="18" />
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                                    <Button CornerRadius="5" Text="Höj behörighet" x:Name="IncreaseAuthorityButton" BackgroundColor="LightPink" Clicked="IncreaseAuthorityButton_Clicked"/>
+                                                    <Button CornerRadius="5" Text="Tillbaka till lista" x:Name="BackToListButton" BackgroundColor="Green" Clicked="BackToListButton_Clicked"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Frame>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+                <StackLayout x:Name="SingleAdminGroup" IsVisible="false" Grid.Column="0" Margin="0,20,0,0">
+                    <ListView x:Name="SingleAdminGroupLV" BackgroundColor="Transparent"  HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid Padding="5">
+                                        <Frame CornerRadius="10" HasShadow="True" BackgroundColor="AntiqueWhite">
+                                            <StackLayout BackgroundColor="Transparent">
+                                                <Label VerticalOptions="Center" Text="{Binding UserGroup, StringFormat='Behörighet: {0}'}" FontSize="Large" FontAttributes="Bold" />
+                                                <Label VerticalOptions="Center" Text="{Binding Username, StringFormat='Användarnamn: {0}'}" FontSize="18"   />
+                                                <Label VerticalOptions="Center" Text="{Binding Firstname, StringFormat='Förnamn: {0}'}" FontSize="18" />
+                                                <Label VerticalOptions="Center" Text="{Binding Lastname, StringFormat='Efternamn: {0}'}" FontSize="18" />
+                                                <Label VerticalOptions="Center" Text="{Binding Address, StringFormat='Adress: {0}'}" FontSize="18" />
+                                                <Label VerticalOptions="Center" Text="{Binding PostalCode, StringFormat='Postkod: {0}'}" FontSize="18" />
+                                                <Label VerticalOptions="Center" Text="{Binding City, StringFormat='Stad: {0}'}" FontSize="18" />
+                                                <Label VerticalOptions="Center" Text="{Binding Email, StringFormat='Email: {0}'}" FontSize="18" />
+                                                <Label VerticalOptions="Center" Text="{Binding PhoneNumber, StringFormat='Telefonnummer: {0}'}" FontSize="18" />
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                                    <Button CornerRadius="5" Text="Höj behörighet" x:Name="IncreaseAuthorityButton2" BackgroundColor="LightPink" Clicked="IncreaseAuthorityButton2_Clicked"/>
+                                                    <Button CornerRadius="5" Text="Reducera behörighet" x:Name="ReduceAuthorityButton" BackgroundColor="Red" Clicked="ReduceAuthorityButton_Clicked"/>
+                                                    <Button CornerRadius="5" Text="Tillbaka till lista" x:Name="BackToListButton" BackgroundColor="Green" Clicked="BackToListButton_Clicked"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Frame>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+                <StackLayout x:Name="SingleBossGroup" IsVisible="false" Grid.Column="0" Margin="0,20,0,0">
+                    <ListView x:Name="SingleBossGroupLV" BackgroundColor="Transparent"  HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid Padding="5">
+                                        <Frame CornerRadius="10" HasShadow="True" BackgroundColor="AntiqueWhite">
+                                            <StackLayout BackgroundColor="Transparent">
+                                                <Label VerticalOptions="Center" Text="{Binding UserGroup, StringFormat='Behörighet: {0}'}" FontSize="Large" FontAttributes="Bold" />
+                                                <Label VerticalOptions="Center" Text="{Binding Username, StringFormat='Användarnamn: {0}'}" FontSize="18"   />
+                                                <Label VerticalOptions="Center" Text="{Binding Firstname, StringFormat='Förnamn: {0}'}" FontSize="18" />
+                                                <Label VerticalOptions="Center" Text="{Binding Lastname, StringFormat='Efternamn: {0}'}" FontSize="18" />
+                                                <Label VerticalOptions="Center" Text="{Binding Address, StringFormat='Adress: {0}'}" FontSize="18" />
+                                                <Label VerticalOptions="Center" Text="{Binding PostalCode, StringFormat='Postkod: {0}'}" FontSize="18" />
+                                                <Label VerticalOptions="Center" Text="{Binding City, StringFormat='Stad: {0}'}" FontSize="18" />
+                                                <Label VerticalOptions="Center" Text="{Binding Email, StringFormat='Email: {0}'}" FontSize="18" />
+                                                <Label VerticalOptions="Center" Text="{Binding PhoneNumber, StringFormat='Telefonnummer: {0}'}" FontSize="18" />
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                                    <Button CornerRadius="5" Text="Tillbaka till lista" x:Name="BackToListButton" BackgroundColor="Green" Clicked="BackToListButton_Clicked"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Frame>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                
+            </Grid>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
+
+
+<!--<Grid>
+    <Grid.RowDefinitions>
+
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+
+    <Frame Grid.Column="0" WidthRequest="200" Margin="5">
+        <StackLayout x:Name="ButtonMenu" IsVisible="true">
+            <Button x:Name="AddProdButton" Text="Lägg till bibliotikarie" FontAttributes="Bold" CornerRadius="10" Clicked="AddProdButton_Clicked"/>
+            <Button x:Name="RemoveProdButton" Text="Ta bort produkt" FontAttributes="Bold" CornerRadius="10" Clicked="RemoveProdButton_Clicked"/>
+            <Button x:Name="UpdateProdButton" Text="Uppdatera produkt" FontAttributes="Bold" CornerRadius="10" Clicked="UpdateProdButton_Clicked"/>
+            <Entry x:Name="SearchBar" BackgroundColor="White"/>
+            <Button x:Name="LogoutButton" Text="Logga ut" VerticalOptions="EndAndExpand" FontAttributes="Bold" CornerRadius="10" Clicked="LogoutButton_Clicked"/>
+
+        </StackLayout>
+    </Frame>
+
+    <Frame  Grid.Column="1">
+        <StackLayout x:Name="ActionFrame" IsVisible="true">
+            <Label x:Name="DefaultFrameText" Text="Default text before action is chosen"
+                           FontAttributes="Bold"
+                           FontSize="Medium"/>
+
+
+            <StackLayout x:Name="AddProdFrame" IsVisible="true">
+                <ActivityIndicator x:Name="ActivityIndicator" IsVisible="false"/>
+                <Label Text="Add product frame is now visible" FontAttributes="Bold" FontSize="Large"/>
+                <ListView x:Name="ProductListView" BackgroundColor="Transparent"  HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="5">
+                                    <Frame CornerRadius="10" HasShadow="True" BackgroundColor="AliceBlue">
+                                        <StackLayout BackgroundColor="Transparent">
+                                            <Label VerticalOptions="Center" Text="{Binding Username, StringFormat='Användarnamn: {0}'}" FontSize="Large" FontAttributes="Bold"   />
+                                            <Label VerticalOptions="Center" Text="{Binding Firstname, StringFormat='Förnamn: {0}'}" FontSize="18" />
+                                            <Label VerticalOptions="Center" Text="{Binding Lastname, StringFormat='Efternamn: {0}'}" FontSize="18" />
+                                            <Label VerticalOptions="Center" Text="{Binding UserGroup, StringFormat='Behörighet: {0}'}" FontSize="18" />
+
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            --><!--<StackLayout x:Name="RemoveProdFrame" IsVisible="false">
+                        <Label Text="Remove product frame is now visible" FontAttributes="Bold" FontSize="Large"/>
+                   
+                    </StackLayout>
+
+                    <StackLayout x:Name="UpdateProdFrame" IsVisible="false">
+                        <Label Text="Update product frame is now visible" FontAttributes="Bold" FontSize="Large"/>
+                    </StackLayout>
+                    <Button x:Name="RemoveLiberianButton" Text="Ta bort en bibliotikarie" FontAttributes="Bold" BackgroundColor="LightPink" CornerRadius="10" Clicked="RemoveLiberianButton_Clicked"/>--><!--
+
+        </StackLayout>
+
+    </Frame>
+
+
+
+
+</Grid>-->

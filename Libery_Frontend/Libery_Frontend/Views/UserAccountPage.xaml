@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Libery_Frontend.Views.UserAccountPage"
+             x:Name="UserHome"
+             xmlns:view="clr-namespace:Libery_Frontend.SecondModels">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary Source="ResourcePage.xaml"/>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <Grid>
+            
+            <Grid.RowDefinitions>
+                
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <StackLayout BackgroundColor="Goldenrod" Grid.Column="0">
+                <StackLayout Orientation="Vertical">
+                    <Image x:Name="trollpic" Source="trollpic.png" WidthRequest="100" HorizontalOptions="End" Margin="0,40,-150,0" IsVisible="true">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    
+                    <Image x:Name="lolpic" Source="lolpic.png" WidthRequest="100" HorizontalOptions="End" Margin="0,40,-150,0" IsVisible="false">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"  NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="babarip.jpg" x:Name="baba1" IsVisible="false"  Margin="0,-145,0,0"/>
+                    <Image Source="babarip.jpg" x:Name="baba2" IsVisible="false" />
+                    <Image Source="babarip.jpg" x:Name="baba3" IsVisible="false" />
+                    <Label Text="REKLAMREKLAMREKLAMREk" Margin="-120"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="FillAndExpand"
+                           WidthRequest="30"/>
+                </StackLayout>
+            </StackLayout>
+            <ActivityIndicator x:Name="ActivityIndicator" IsVisible="false"></ActivityIndicator>
+
+            <StackLayout HorizontalOptions="CenterAndExpand" Grid.Column="1" >
+                <Label Text="{Binding ., StringFormat='Välkommen {0}!'}" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Label Text="Här på din sida kan du lämna tillbaks böcker!" FontSize="Large" FontAttributes="Bold" />
+            </StackLayout>
+            <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,100,0,0" Grid.Column="1">
+
+                   <Label x:Name="ListViewEmptyLabel" Text="" FontAttributes="Bold" FontSize="Medium" Margin="0,20,0,0"/>
+                <ListView x:Name="ProductListView" BackgroundColor="Transparent"  HasUnevenRows="True" WidthRequest="500">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="5">
+                                    <Frame CornerRadius="10" HasShadow="True" BackgroundColor="AntiqueWhite" Padding="0">
+                                        <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="0">
+                                            <StackLayout HorizontalOptions="Start" Orientation="Vertical" Padding="8,8,0,8" >
+                                                <Image Source="{Binding Image}" HorizontalOptions="CenterAndExpand" WidthRequest="90" />
+                                            </StackLayout>
+                                            <StackLayout HorizontalOptions="StartAndExpand" Padding="0">
+                                                <Label VerticalOptions="Center" Text="{Binding ProductName, StringFormat='{0}'}" FontAttributes="Bold" FontSize="18"  />
+                                                <Label VerticalOptions="Center" Text="{Binding prodType, StringFormat='{0}'}" FontSize="14" />
+                                                <Label VerticalOptions="Center" Text="{Binding DateBooked,Converter={StaticResource cnvDateTimeConverter},StringFormat='Bokad: {0:dddd, MMMM dd, yyyy}'}" FontSize="14" />
+                                                    <Label VerticalOptions="Center" Text="{Binding ReturnDate,Converter={StaticResource cnvDateTimeConverter}, StringFormat='Återlämnas senast: {0}'}" FontSize="14" />
+                                                <StackLayout Orientation="Horizontal" Margin="5,10,5,0">
+                                                    <Button CornerRadius="5" x:Name="ExtendButton" Text="Förläng lånet" IsVisible="true" VerticalOptions="StartAndExpand"  Margin="0,0,0,0" Clicked="ExtendButton_Clicked" BackgroundColor="LightSeaGreen"></Button>
+                                                    <Button CornerRadius="5" x:Name="InsertIntoOrderButton" Text="Lämna tillbaka produkt" VerticalOptions="StartAndExpand" Clicked="InsertIntoOrderButton_Clicked" BackgroundColor="LightCoral"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+
+            </StackLayout>
+            <StackLayout BackgroundColor="Pink" Grid.Column="2">
+                <Image Source="babarip.jpg" x:Name="baba4" IsVisible="false" />
+                <Image Source="babarip.jpg" x:Name="baba5" IsVisible="false" />
+                <Image Source="babarip.jpg" x:Name="baba6" IsVisible="false" />
+                <Label Text="REKLAMREKLAMREKLAMREk"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="FillAndExpand"
+                           WidthRequest="30"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

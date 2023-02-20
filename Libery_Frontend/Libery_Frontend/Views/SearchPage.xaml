@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Libery_Frontend.Views.SearchPage"
+             xmlns:view="using:Libery_Frontend.Views">
+    <ContentPage.Content>
+        <StackLayout Margin="0,10,0,0" >
+            <RelativeLayout HorizontalOptions="CenterAndExpand" Scale="1.6" Margin="0,40,0,0">
+                <Grid Padding="0" Margin="0,11,0,10" WidthRequest="700" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <BoxView CornerRadius="10" Margin="0" Grid.Row="0" >
+                        <BoxView.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="LightCoral" Offset="1" />
+                                <GradientStop Color="SeaGreen" />
+                            </LinearGradientBrush>
+                        </BoxView.Background>
+                    </BoxView>
+
+                    <Frame Padding="0" Margin="0,0,0,0" Grid.Row="0" CornerRadius="10" Scale="1" >
+                        <SearchBar x:Name="SearchBarInput" HorizontalOptions="FillAndExpand" Placeholder="Sök efter produkt" TextChanged="Entry_TextChanged" BackgroundColor="Bisque"  SearchButtonPressed="SearchBar_SearchButtonPressed" WidthRequest="100" Scale="1.008" Margin="0,-1,0,0">
+
+                        </SearchBar>
+                    </Frame>
+                </Grid>
+            </RelativeLayout>
+
+            <!--<SearchBar x:Name="SearchBarInput" HorizontalOptions="FillAndExpand" Placeholder="Sök efter produkt" TextChanged="Entry_TextChanged" BackgroundColor="Bisque" SearchButtonPressed="SearchBar_SearchButtonPressed" WidthRequest="100"></SearchBar>-->
+            <!-- Search result-->
+            <ActivityIndicator x:Name="ActivityIndicator" IsVisible="true" HorizontalOptions="FillAndExpand"></ActivityIndicator>
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="1" Grid.ColumnSpan="1">
+                    <ListView x:Name="SearchListView" IsGroupingEnabled="true" HasUnevenRows="true" Margin="0, 10, 0, 0">
+                        <ListView.GroupHeaderTemplate>
+                            <DataTemplate>
+                                <ViewCell Height="40">
+                                    <StackLayout HorizontalOptions="FillAndExpand" HeightRequest="30" 
+                                     Padding="5" Orientation="Horizontal">
+                                        <Label FontSize="18" TextColor="Black" VerticalOptions="Center" Text="{Binding Key}" FontAttributes="Bold" HeightRequest="20" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.GroupHeaderTemplate>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid Padding="5">
+                                        <Frame CornerRadius="10" HasShadow="True" BackgroundColor="AntiqueWhite">
+                                            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="10,10,5,15">
+                                                <StackLayout HorizontalOptions="Start" Orientation="Vertical">
+                                                    <Image Source="{Binding Image}" HorizontalOptions="Start" WidthRequest="90" />
+                                                </StackLayout>
+                                                <StackLayout HorizontalOptions="Start" BackgroundColor="Transparent">
+                                                    <Label Grid.Row="1" Grid.Column="2"  Text="{Binding ProductName}" FontAttributes="Bold"  FontSize="Medium" TextColor="Black"/>
+                                                    <Label Grid.Row="2" Grid.Column="2" Text="{Binding ProductInfo}" TextColor="Black"/>
+                                                    <!--<Label Grid.Row="3" Grid.Column="2" Text="{Binding Price, StringFormat='{0}kr'}" FontAttributes="Italic" TextColor="Black"/>-->
+                                                    <Label Grid.Row="4" Grid.Column="2"  Text="{Binding ReleaseDate, StringFormat='Utgiven: {0}'}" FontSize="12" Margin="0,10,0,0"/>
+                                                </StackLayout>
+                                                
+                                                
+                                            </StackLayout>
+                                        </Frame>
+                                        <StackLayout HorizontalOptions="End" VerticalOptions="End" WidthRequest="200">
+                                            <Button BackgroundColor="SeaGreen" Grid.Column="2" CornerRadius="10" HorizontalOptions="End" VerticalOptions="End"  x:Name="BookProductButton2" Text="Logga in" FontSize="Medium" FontAttributes="Bold" IsVisible="true" Clicked="BookProductButton_Clicked" WidthRequest="200"/>
+
+                                        </StackLayout>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+                               

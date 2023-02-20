@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Libery_Frontend.Views.RegisterPage"   NavigationPage.HasBackButton="False">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="ResourcePage.xaml"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <RelativeLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="0,0,0,0">
+                    <Grid Padding="0" Scale="0.9">
+                        <Grid.RowDefinitions>
+                            
+
+
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="400"/>
+
+                        </Grid.ColumnDefinitions>
+
+
+                        <BoxView CornerRadius="10" Grid.Column="1" >
+                            <BoxView.Background>
+                                <LinearGradientBrush >
+                                    <GradientStop Color="LightCoral" Offset=".68" />
+                                    <GradientStop  Offset=".2" Color="SeaGreen" />
+
+                                </LinearGradientBrush>
+                            </BoxView.Background>
+                        </BoxView>
+
+
+                        <StackLayout HorizontalOptions="StartAndExpand" Padding="20" Margin="50,50,0,0" Grid.Column="1">
+                            
+
+                            <StackLayout Orientation="Horizontal">
+
+                                <StackLayout Padding="0,0,10,5">
+                                    <Label x:Name="FirstnameLab" Text="Förnamn" FontSize="Small" FontAttributes="Bold"/>
+                                    <Entry x:Name="FirstnameEntry" Placeholder="Karin" WidthRequest="300"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="LastnameLab" Text="Efternamn" FontSize="Small" FontAttributes="Bold"/>
+                                    <Entry x:Name="LastnameEntry" Placeholder="Ekström" WidthRequest="300"/>
+                                </StackLayout>
+                                <StackLayout>
+                                <StackLayout Margin="0,0,0,0">
+                                    <Label x:Name="UsernameLabel" Text="Användarnamn" FontSize="Small" FontAttributes="Bold"/>
+                                    <Entry x:Name="UsernameEntry" WidthRequest="300"/>
+                                </StackLayout>
+                            </StackLayout>
+
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Padding="0,0,10,5">
+                                    <Label x:Name="PaswordLabel" Text="Lösenord" FontSize="Small" FontAttributes="Bold"/>
+                                    <Entry x:Name="PasswordEntry" IsPassword="True" WidthRequest="300"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="ConfirmPaswordLabel" Text="Bekräfta Lösenord" FontSize="Small" FontAttributes="Bold"/>
+                                    <Entry x:Name="ConfirmPasswordEntry" IsPassword="True" WidthRequest="300"/>
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Padding="0,0,10,5">
+                                    <Label x:Name="CityLab" Text="Stad" FontSize="Small" FontAttributes="Bold"/>
+                                    <Entry x:Name="CityEntry" Placeholder="Stockholm" WidthRequest="300"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="AddressLab" Text="Adress" FontSize="Small" FontAttributes="Bold"/>
+                                    <Entry x:Name="AddressEntry" Placeholder="Hittepågatan 1337" WidthRequest="300"/>
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout HorizontalOptions="Start" WidthRequest="615">
+                                <StackLayout>
+
+                                    <Label x:Name="PostCodeLab" Text="Postkod" FontSize="Small" FontAttributes="Bold"/>
+                                    <Entry x:Name="PostcodeEntry" Placeholder="12939" />
+                                </StackLayout>
+
+                                <StackLayout>
+
+                                    <Label x:Name="PhonenumberLab" Text="Telefonnummer" FontSize="Small" FontAttributes="Bold"/>
+                                    <Entry x:Name="PhonenumberEntry" Placeholder="0761611369"/>
+                                </StackLayout>
+
+                                <StackLayout>
+
+                                    <Label x:Name="EmailLab" Text="Email" FontSize="Small" FontAttributes="Bold"/>
+                                    <Entry x:Name="EmailEntry" Placeholder="Example@gmail.com"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Button x:Name="RegisterButton" HorizontalOptions="Center" FontAttributes="Bold" BackgroundColor="DarkGoldenrod" Text="Registrera" Margin="0,15,0,0" Clicked="RegisterButton_Clicked"/>
+                                </StackLayout>
+                            </StackLayout>
+                            
+                        </StackLayout>
+                        <Image Source="register.png" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Scale=".3"/>
+                        
+
+                    </Grid>
+
+
+                </StackLayout>
+            </RelativeLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

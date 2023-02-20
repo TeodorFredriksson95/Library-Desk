@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Libery_Frontend.Views.AddAuthor">
+
+    <ContentPage.Resources>
+
+        <ResourceDictionary Source="ResourcePage.xaml"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10,0,10,0">
+
+                <StackLayout Orientation="Horizontal">
+                    <Picker x:Name="AllAuthor" Title="Se alla författare" VerticalOptions="CenterAndExpand" Margin="10, 0" WidthRequest="300"
+                            SelectedIndexChanged="AllAuthor_SelectedIndexChanged">
+                        
+                    </Picker>
+                    
+                </StackLayout>
+                <StackLayout>
+                    <Label x:Name="FirstName" Text="Författare förnamn"/>
+                    <Entry x:Name="FirstNameEntry"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label x:Name="LastName" Text="Författare efternamn"/>
+                    <Entry x:Name="LastNameEntry"/>
+                </StackLayout>
+                <Button x:Name="AddAuthorButton" HorizontalOptions="Center" Text="Lägg till författare" Margin="0,30,0,0" Clicked="AddAuthor_Clicked" ></Button>
+
+
+            </StackLayout>
+        </ScrollView>
+        
+      
+    </ContentPage.Content>
+</ContentPage>

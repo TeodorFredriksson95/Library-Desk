@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:models="clr-namespace:Libery_Frontend.Models"
+             x:Class="Libery_Frontend.Views.AddAndDelete">
+
+    <ContentPage.Resources>
+        <ResourceDictionary Source="ResourcePage.xaml"/>
+        <Style TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="400" />
+                </Grid.ColumnDefinitions>
+
+                <Frame Grid.Column="0">
+                    <Grid>
+                        <Frame BackgroundColor="AntiqueWhite"  WidthRequest="300">
+                            <StackLayout>
+                                <StackLayout Margin="0">
+                                    <Label x:Name="ProductName" Text="Titel" />
+                                    <Entry x:Name="ProductNameEntry"/>
+                                </StackLayout>
+
+                                <StackLayout>
+                                    <Label x:Name="ProductInfo" Text="Titelinfo" />
+                                    <Entry x:Name="ProductInfoEntry"/>
+                                </StackLayout>
+
+                                <StackLayout>
+                                    <Label x:Name="ISBN" Text="ISBN-nummer"/>
+                                    <Entry x:Name="ISBNEntry"/>
+                                </StackLayout>
+
+                                <!--<StackLayout>
+                                    <Label x:Name="FirstnameLab" Text="Författare förnamn"/>
+                                    <Entry x:Name="AFirstnameEntry" Placeholder="Jan"/>
+                                </StackLayout>
+
+                                <StackLayout>
+                                    <Label x:Name="LastnameLab" Text="Författare efternamn"/>
+                                    <Entry x:Name="ALastnameEntry" Placeholder="Guillou"/>
+                                </StackLayout>-->
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Picker x:Name="pickerarray" Title="Välj författare" VerticalOptions="CenterAndExpand" Margin="0, 0" WidthRequest="200"
+                                                SelectedIndexChanged="picker_SelectedIndexChanged"/>
+
+                                </StackLayout>
+
+
+                                <!--<StackLayout>
+                                    <Label x:Name="CategoryId" Text="Kategori"/>
+                                    <Entry x:Name="CategoryIdEntry"/>
+                                </StackLayout>-->
+
+                                <StackLayout>
+                                    <Picker x:Name="PickerCategoryID" Title="Välj kategori" VerticalOptions="CenterAndExpand" Margin="0, 0" WidthRequest="100"
+                            SelectedIndexChanged="PickerCategoryID_SelectedIndexChanged"></Picker>
+
+
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="Image" Text="Lägg in bildlänk"/>
+                                    <Entry x:Name="ImageEntry"/>
+                                </StackLayout>
+
+                                <StackLayout>
+                                    <Picker x:Name="PickerProductType" Title="Välj produkttyp" VerticalOptions="CenterAndExpand" Margin="00, 0" WidthRequest="300"
+                          SelectedIndexChanged="PickerProductType_SelectedIndexChanged"></Picker>
+                                </StackLayout>
+
+                                <StackLayout>
+                                    <Label x:Name="Price" Text="Pris"/>
+                                    <Entry x:Name="PriceEntry"/>
+                                </StackLayout>
+
+                                <StackLayout>
+                                    <Label x:Name="BookPages" Text="Antal sidor"/>
+                                    <Entry x:Name="BookPagesEntry"/>
+                                </StackLayout>
+
+                                <Button CornerRadius="5" x:Name="AddButton" BackgroundColor="SeaGreen"  HorizontalOptions="Center" FontAttributes="Bold" Text="Lägg till produkt" Margin="0,30,0,0" Clicked="AddButton_Clicked"/>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </Frame>
+                
+                <Frame Grid.Column="1">
+                    <WebView x:Name="webSite"/>
+                </Frame> 
+                <Frame Grid.Column="2">
+                    <WebView x:Name="webSite2"/>
+                </Frame>
+                
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

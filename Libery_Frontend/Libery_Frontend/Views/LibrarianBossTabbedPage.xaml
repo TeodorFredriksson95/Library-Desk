@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Libery_Frontend.Views.LibrarianBossTabbedPage"
+             xmlns:mypages="clr-namespace:Libery_Frontend.Views;assembly=Libery_Frontend"
+            BackgroundImageSource="">
+    <TabbedPage.Children>
+        <mypages:AddAndDelete Title="Lägg till bok"/>
+        <mypages:LibrarianPage Title="Ta bort bok"/>
+        <mypages:UpdateProductPage Title="Uppdatera produkt"/>
+        <mypages:AddProduct Title="Kategori/Författare/Typ"/>
+        <mypages:Stats Title="Statistik"/>
+        <mypages:LibraryBossPage Title="Uppdatera behörighet"/>
+    </TabbedPage.Children>
+</TabbedPage>

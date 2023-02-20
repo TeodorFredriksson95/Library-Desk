@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Libery_Frontend.Views.Stats">
+    <ContentPage.Content>
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="300"/>
+
+            </Grid.ColumnDefinitions>
+            <ActivityIndicator x:Name="ActivityIndicator" IsVisible="false"/>
+
+            <Frame  HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"  Grid.Column="0" WidthRequest="300">
+                
+                <StackLayout x:Name="Menu" IsVisible="true">
+                    <Button x:Name="Mostlendproduct" Text="Mest lånade produkter" FontAttributes="Bold" BackgroundColor="AntiqueWhite" TextColor="Black" WidthRequest="50" Clicked="TopProduct_Clicked"></Button>
+                    <Button x:Name="LastlednProduct" Text="Minst lånade produkter" FontAttributes="Bold" BackgroundColor="AntiqueWhite" TextColor="Black" WidthRequest="50" Clicked="LastProduct_Clicked"></Button>
+                    <Button x:Name="TopCategoryProduct" Text="Topp kategori" FontAttributes="Bold" BackgroundColor="AntiqueWhite" TextColor="Black" WidthRequest="50" Clicked="TopCategoryProduct_Clicked"></Button>
+                    <Button x:Name="TopUser" Text="Vilken kund har lånat flest produkter" FontAttributes="Bold" BackgroundColor="AntiqueWhite" TextColor="Black" WidthRequest="50" Clicked="TopUser_Clicked"></Button>
+                    <Button x:Name="BooksToReturnButton" Text="Kunder som har böcker att lämna tillbaka" FontAttributes="Bold" BackgroundColor="AntiqueWhite" TextColor="Black" WidthRequest="50" Clicked="BooksToReturnButton_Clicked"></Button>
+                    <Button x:Name="TimeOnSitesButton" Text="Genomsnittlig användartid på olika sidor" FontAttributes="Bold" BackgroundColor="AntiqueWhite" TextColor="Black" WidthRequest="50" Clicked="TimeOnSitesButton_Clicked"></Button>
+                    <Button x:Name="SiteVisitsButton" Text="Totalt antal besök hos olika sidor" FontAttributes="Bold" BackgroundColor="AntiqueWhite" TextColor="Black" WidthRequest="50" Clicked="SiteVisitsButton_Clicked"></Button>
+
+
+
+                </StackLayout>
+
+            </Frame>
+            <Frame  Grid.Column="1">
+                <StackLayout>
+
+
+
+                    <StackLayout x:Name="AddProdFrame" IsVisible="true">
+
+                        <StackLayout x:Name="Books" IsVisible="true">
+                            <ListView x:Name="ProductsListView" BackgroundColor="Transparent"  HasUnevenRows="True">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid Padding="5">
+                                                <Frame CornerRadius="10" HasShadow="True" BackgroundColor="AntiqueWhite">
+                                                    <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
+                                                        <Image Source="{Binding Image}" WidthRequest="150" Aspect="AspectFill"/>
+                                                        <StackLayout BackgroundColor="Transparent">
+                                                            <Label Grid.Row="1" Grid.Column="2"  Text="{Binding ProductID, StringFormat='Id: {0}'}"  FontSize="Medium" TextColor="Black"/>
+                                                            <Label Grid.Row="2" Grid.Column="2"  Text="{Binding ProductName, StringFormat='Produktnamn: {0}'}"  FontSize="Medium" TextColor="Black"/>
+                                                            <Label Grid.Row="3" Grid.Column="2"  Text="{Binding orderCount, StringFormat='Antal: {0}'}"  FontSize="Medium" TextColor="Black"/>
+                                                            <Label Grid.Row="4" Grid.Column="2"  Text="{Binding Id, StringFormat='Typ: {0}'}"  FontSize="Medium" TextColor="Black"/>
+                                                            <Label Grid.Row="6" Grid.Column="2"  Text="{Binding CategoryName, StringFormat='Kategori: {0}'}"  FontSize="Medium" TextColor="Black"/>
+                                                            <Label Grid.Row="7" Grid.Column="2"  Text="{Binding Type, StringFormat='Typ: {0}'}"  FontSize="Medium" TextColor="Black"/>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+
+                        <StackLayout x:Name="Order" IsVisible="true">
+                            <ListView x:Name="UserListView" BackgroundColor="Transparent"  HasUnevenRows="True">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid Padding="5">
+                                                <Frame CornerRadius="10" HasShadow="True" BackgroundColor="AntiqueWhite">
+                                                    <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
+                                                        <Image Source="{Binding Image}" WidthRequest="150" Aspect="AspectFill"/>
+                                                        <StackLayout BackgroundColor="Transparent">
+
+                                                            <Label  Grid.Row="1" Grid.Column="2"  Text="{Binding OrderId, StringFormat='Kund: {0}'}"  FontSize="Medium" TextColor="Black"/>
+                                                            <Label  Grid.Row="2" Grid.Column="2"  Text="{Binding orderCount, StringFormat='Antal lån: {0}'}"  FontSize="Medium" TextColor="Black"/>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                        
+
+
+                        <StackLayout x:Name="BooksToReturn" IsVisible="true">
+                            <ListView x:Name="BooksToReturnListView" BackgroundColor="Transparent"  HasUnevenRows="True">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid Padding="5">
+                                                <Frame CornerRadius="10" HasShadow="True" BackgroundColor="AntiqueWhite">
+                                                    <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
+                                                        <Image Source="{Binding Image}" WidthRequest="150" Aspect="AspectFill"/>
+                                                        <StackLayout BackgroundColor="Transparent">
+                                                        
+                                                            <Label Grid.Row="1" Grid.Column="2"  Text="{Binding OrderId, StringFormat='Kund: {0}'}"  FontSize="Medium" TextColor="Black"/>
+                                                            <Label Grid.Row="2" Grid.Column="2"  Text="{Binding DateBooked, StringFormat='Bokad: {0:dd/MM/yyyy}'}"  FontSize="Medium" TextColor="Black"/>
+                                                            <Label Grid.Row="3" Grid.Column="2"  Text="{Binding ReturnDate, StringFormat='Återlämnas senast: {0:dd/MM/yyyy} '}"  FontSize="Medium" TextColor="Black"/>
+
+
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+
+                        <StackLayout x:Name="Category" IsVisible="true">
+                            <ListView x:Name="CategoryListView" BackgroundColor="Transparent"  HasUnevenRows="True">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid Padding="5">
+                                                <Frame CornerRadius="10" HasShadow="True" BackgroundColor="AntiqueWhite">
+                                                    <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
+                                                        <Image Source="{Binding Image}" WidthRequest="150" Aspect="AspectFill"/>
+                                                        <StackLayout BackgroundColor="Transparent">
+                                                      
+                                                            <Label Grid.Row="6" Grid.Column="2"  Text="{Binding CategoryName, StringFormat='Kategori: {0}'}"  FontSize="Medium" TextColor="Black"/>
+                                                            <Label Grid.Row="7" Grid.Column="2"  Text="{Binding Type, StringFormat='Typ: {0}'}"  FontSize="Medium" TextColor="Black"/>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+
+                        <StackLayout x:Name="TimeOnSites" IsVisible="true">
+                            <ListView x:Name="TimeOnSitesListView" BackgroundColor="Transparent"  HasUnevenRows="True">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid Padding="5">
+                                                <Frame CornerRadius="10" HasShadow="True" BackgroundColor="AntiqueWhite">
+                                                    <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
+                                                        <StackLayout BackgroundColor="Transparent">
+                                                            <Label Grid.Row="6" Grid.Column="2"  Text="{Binding PageName, StringFormat='{0}'}" FontSize="Medium" FontAttributes="Bold" TextColor="Black"></Label>
+                                                            <Label Grid.Row="7" Grid.Column="2"  Text="{Binding Mean, StringFormat='{0} Sek'}" FontSize="Medium" TextColor="Black"></Label>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+
+                        <StackLayout x:Name="SiteVisits" IsVisible="true">
+                            <ListView x:Name="SiteVisitsListView" BackgroundColor="Transparent"  HasUnevenRows="True">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid Padding="5">
+                                                <Frame CornerRadius="10" HasShadow="True" BackgroundColor="AntiqueWhite">
+                                                    <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
+                                                        <StackLayout BackgroundColor="Transparent">
+                                                            <Label Grid.Row="6" Grid.Column="1"  Text="{Binding PageName, StringFormat='{0}'}" FontSize="Medium" FontAttributes="Bold" TextColor="Black"></Label>
+                                                            <Label Grid.Row="7" Grid.Column="1"  Text="{Binding Visits, StringFormat='{0} Besök'}" FontSize="Medium" TextColor="Black"></Label>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+
+
+                    </StackLayout>
+                </StackLayout>
+
+            </Frame>
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

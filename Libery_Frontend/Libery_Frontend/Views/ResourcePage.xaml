@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                    xmlns:local="clr-namespace:Libery_Frontend.SecondModels"
+                    x:Class="Libery_Frontend.Views.ResourcePage">
+    
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="Black"/>
+    </Style>
+
+    <Style TargetType="Entry">
+       
+        <Setter Property="TextColor" Value="Black"/>
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="BackgroundColor" Value="Olive"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="FontSize" Value="Small"/>
+        <Setter Property="TextColor" Value="Black"/>
+
+
+    </Style>
+    <local:DateTimeConverter x:Key="cnvDateTimeConverter"></local:DateTimeConverter>
+    
+</ResourceDictionary>

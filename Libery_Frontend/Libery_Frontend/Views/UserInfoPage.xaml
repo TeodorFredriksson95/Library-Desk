@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Libery_Frontend.Views.UserInfoPage">
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="300"/>
+
+            </Grid.ColumnDefinitions>
+            <ActivityIndicator x:Name="ActivityIndicator" IsVisible="false"/>
+
+            <Frame HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"  Grid.Column="0" WidthRequest="300">
+                <StackLayout x:Name="Menu" IsVisible="true">
+
+                    <Button x:Name="UserStats" Text="Användarinformation" FontAttributes="Bold" BackgroundColor="AntiqueWhite" TextColor="Black" WidthRequest="50" Clicked="UserStats_Clicked"></Button>
+
+
+
+                </StackLayout>
+
+            </Frame>
+            <Frame  Grid.Column="1">
+                <StackLayout>
+
+
+
+                    <StackLayout x:Name="AddProdFrame" IsVisible="true">
+
+
+                        <StackLayout x:Name="StatsforDifferentUser" IsVisible="true">
+                            <ListView x:Name="InfoUser" IsVisible="true" BackgroundColor="Transparent"  HasUnevenRows="True">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid Padding="5">
+                                                <Frame CornerRadius="10" HasShadow="True" BackgroundColor="AntiqueWhite">
+                                                    <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
+                                                        <Image Source="{Binding Image}" WidthRequest="150" Aspect="AspectFill"/>
+                                                        <StackLayout BackgroundColor="Transparent">
+
+                                                            <Label Grid.Row="1" Grid.Column="2"  Text="{Binding UserName, StringFormat='Användarnamn: {0}'}"  FontSize="Medium" TextColor="Black"/>
+                                                            <Label Grid.Row="2" Grid.Column="2"  Text="{Binding Firstname, StringFormat='Förnamn: {0}'}"  FontSize="Medium" TextColor="Black"/>
+                                                            <Label Grid.Row="2" Grid.Column="2"  Text="{Binding Lastname, StringFormat='Efternamn: {0}'}"  FontSize="Medium" TextColor="Black"/>
+                                                            <Label Grid.Row="2" Grid.Column="2"  Text="{Binding Email, StringFormat='Email: {0}'}"  FontSize="Medium" TextColor="Black"/>
+                                                            <Label Grid.Row="2" Grid.Column="2"  Text="{Binding PhoneNumber, StringFormat='Telefonnummer: {0}'}"  FontSize="Medium" TextColor="Black"/>
+
+
+
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+
+                    </StackLayout>
+                </StackLayout>
+
+            </Frame>
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

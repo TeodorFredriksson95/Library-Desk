@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Libery_Frontend.Views.AddProduct">
+    <ContentPage.Resources>
+
+        <ResourceDictionary Source="ResourcePage.xaml"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+
+                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="20">
+
+                    <StackLayout HorizontalOptions="StartAndExpand" Padding="0">
+                        <Label x:Name="Producttype" Text="Produkttyp" FontAttributes="Bold"/>
+                        <Entry x:Name="TypeEntry" HorizontalOptions="Start" WidthRequest="300"/>
+                        <Label Text="Tillgängliga produkttyper" FontAttributes="Bold"/>
+                        <Picker x:Name="Allproducttype"  HorizontalOptions="Start" WidthRequest="300">
+                        </Picker>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="Start" Orientation="Vertical" >
+                        <Button CornerRadius="5" WidthRequest="100" BackgroundColor="LightGreen" x:Name="AddProducttype" HorizontalOptions="Center" Text="Lägg till" FontAttributes="Bold" Margin="15,28,0,0" Clicked="AddProducttype_Clicked" />
+                        <Button CornerRadius="5" WidthRequest="100" BackgroundColor="LightSalmon" x:Name="RemoveProducttype" HorizontalOptions="Center" Text="Ta bort" FontAttributes="Bold" Margin="15,25,0,0" Clicked="RemoveProducttype_Clicked"  />
+                    </StackLayout>
+                    
+                    <StackLayout Padding="0" Margin="150,0,0,0">
+                        <Label x:Name="CategoryLabel" Text="Produktkategori" FontAttributes="Bold"/>
+                        <Entry x:Name="CategoryEntry" HorizontalOptions="Start" WidthRequest="300"/>
+                        <Label Text="Tillgängliga produktkategorier" FontAttributes="Bold"/>
+                        <Picker x:Name="PickerCategory"  HorizontalOptions="Start" WidthRequest="300">
+                        </Picker>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="Start" Orientation="Vertical" >
+                        <Button CornerRadius="5" WidthRequest="100" BackgroundColor="LightGreen" x:Name="AddCategoryButton" HorizontalOptions="Center" Text="Lägg till" FontAttributes="Bold" Margin="15,28,0,0" Clicked="AddCategoryButton_Clicked"/>
+                        <Button CornerRadius="5" WidthRequest="100" BackgroundColor="LightSalmon" x:Name="RemoveCategoryButton" HorizontalOptions="Center" Text="Ta bort" FontAttributes="Bold" Margin="15,25,0,0" Clicked="RemoveCategoryButton_Clicked" />
+                    </StackLayout>
+                </StackLayout>
+
+
+
+                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="20" Margin="0,50,0,0">
+
+                    <StackLayout HorizontalOptions="StartAndExpand" Padding="0">
+                        <Label x:Name="FirstName" Text="Författare förnamn" FontAttributes="Bold"/>
+                        <Entry x:Name="FirstNameEntry" HorizontalOptions="Start" WidthRequest="300"/>
+                        <Label x:Name="LastName" Text="Författare efternamn" FontAttributes="Bold"/>
+                        <Entry x:Name="LastNameEntry" HorizontalOptions="Start" WidthRequest="300"/>
+                        <Label Text="Tillgängliga författare" FontAttributes="Bold"/>
+                        <Picker x:Name="AllAuthor"  HorizontalOptions="Start" WidthRequest="300">
+                        </Picker>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="Start" Orientation="Vertical" >
+                        <Button CornerRadius="5" WidthRequest="100" BackgroundColor="LightGreen" x:Name="AddAuthorButton" HorizontalOptions="Center" Text="Lägg till" FontAttributes="Bold" Margin="15,95,0,0" Clicked="AddAuthor_Clicked" />
+                        <Button CornerRadius="5" WidthRequest="100" BackgroundColor="LightSalmon" x:Name="RemoveAuthorButton" HorizontalOptions="Center" Text="Ta bort" FontAttributes="Bold" Margin="15,25,0,0" Clicked="RemoveAuthorButton_Clicked"  />
+                    </StackLayout>
+
+                    <StackLayout HorizontalOptions="StartAndExpand" Padding="0" Margin="150,0,0,0">
+                        <Label x:Name="dirFirstName" Text="Regissör förnamn" FontAttributes="Bold"/>
+                        <Entry x:Name="dirFirstNameEntry" HorizontalOptions="Start" WidthRequest="300"/>
+                        <Label x:Name="dirLastName" Text="Regissör efternamn" FontAttributes="Bold"/>
+                        <Entry x:Name="dirLastNameEntry" HorizontalOptions="Start" WidthRequest="300"/>
+                        <Label Text="Tillgängliga regissörer" FontAttributes="Bold"/>
+                        <Picker x:Name="AllDirector"  HorizontalOptions="Start" WidthRequest="300">
+                        </Picker>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="Start" Orientation="Vertical" >
+                        <Button CornerRadius="5" WidthRequest="100" BackgroundColor="LightGreen" x:Name="AddDirectorButton" HorizontalOptions="Center" Text="Lägg till" FontAttributes="Bold" Margin="15,95,0,0" Clicked="AddDirectorButton_Clicked" />
+                        <Button CornerRadius="5" WidthRequest="100" BackgroundColor="LightSalmon" x:Name="RemoveDirectorButton" HorizontalOptions="Center" Text="Ta bort" FontAttributes="Bold" Margin="15,25,0,0" Clicked="RemoveDirectorButton_Clicked"  />
+                    </StackLayout>
+
+                </StackLayout>
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
